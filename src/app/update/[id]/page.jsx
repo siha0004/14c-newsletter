@@ -1,4 +1,4 @@
-import { getSubById, patchSub } from "@/lib/supabase";
+import { getSubById, patchSub, deleteSub } from "@/lib/supabase";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -33,6 +33,13 @@ async function page({ params }) {
     redirect("/");
   }
 
+  async function unsubscribe() {
+    "use server";
+    await deleteSub(id);
+    revalidatePath("/");
+    redirect("/");
+  }
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-6 row-start-2 items-center sm:items-start">
@@ -51,7 +58,9 @@ async function page({ params }) {
             <input type="text" name="email" id="id-email" defaultValue={subscriber[0].email} className=" px-3 py-2 border-2 rounded-md" />
           </div>
           <div className="flex gap-2">
-            {/* <button className="bg-gray-400 hover:bg-gray-500 text-white rounded-md block py-1 px-6">Delete</button> */}
+            <button formAction={unsubscribe} className="bg-gray-400 hover:bg-gray-500 text-white rounded-md block py-1 px-6">
+              Delete
+            </button>
             <button className="bg-blue-600 hover:bg-blue-700 text-white rounded-md block py-1 px-6">Update</button>
           </div>
         </form>

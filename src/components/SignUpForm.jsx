@@ -20,13 +20,13 @@ async function SignUpForm() {
         <label htmlFor="id-name" className="font-bold block">
           Name
         </label>
-        <input type="text" name="name" id="id-name" className="px-3 py-2 border-2 rounded-md" />
+        <input type="text" name="name" id="id-name" required className="px-3 py-2 border-2 rounded-md" />
       </div>
       <div className="mb-4">
         <label htmlFor="id-email" className="font-bold block">
           Email
         </label>
-        <input type="text" name="email" id="id-email" className="px-3 py-2 border-2 rounded-md" />
+        <input type="text" name="email" id="id-email" required className="px-3 py-2 border-2 rounded-md" />
       </div>
       <button className="bg-blue-600 hover:bg-blue-700 text-white rounded-md w-full py-1 px-6">Subscribe</button>
     </form>

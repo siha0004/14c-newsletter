@@ -54,7 +54,6 @@ export async function deleteSub(id) {
   const response = await fetch(`${url}?id=eq.${id}`, {
     method: "DELETE",
     headers: headersList,
-    body: JSON.stringify(subdata),
   });
 
   const data = await response.json();
