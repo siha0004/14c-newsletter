@@ -17,6 +17,7 @@ async function page({ params }) {
     */
 
   const { id } = await params;
+  console.log(id);
   const subscriber = await getSubById(id);
   console.log("subscriber", subscriber);
 

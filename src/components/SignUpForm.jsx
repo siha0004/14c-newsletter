@@ -1,5 +1,6 @@
 import { postSub } from "@/lib/supabase";
 import { revalidatePath } from "next/cache";
+import SubmitButton from "./SubmitButton";
 
 async function SignUpForm() {
   async function send(formData) {
@@ -28,7 +29,7 @@ async function SignUpForm() {
         </label>
         <input type="text" name="email" id="id-email" required className="px-3 py-2 border-2 rounded-md" />
       </div>
-      <button className="bg-blue-600 hover:bg-blue-700 text-white rounded-md w-full py-1 px-6">Subscribe</button>
+      <SubmitButton></SubmitButton>
     </form>
   );
 }
